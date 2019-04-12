@@ -12,4 +12,10 @@ class Project extends Model
 	];
 	//Also, the guard does the same but in a inverse fashion, 'accept this fields, except this stored in the array guard'
 	//protected $guarded = [];
+
+	//The relationships are declared in the model from the entry point to the marking file with the relationships, in this case Project has many relationships with Task
+	public function tasks()
+	{
+		return $this->hasMany(Task::class);
+	}
 }
