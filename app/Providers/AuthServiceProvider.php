@@ -24,9 +24,10 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(Gate $gate)
     {
         $this->registerPolicies();
-
-        $gate->before(function ($user) {
-		return $user->id == 2;
-	}
+	//IN previous versions of Laravel, is $gate->before
+	Gate::before(function ($user) {
+		return $user->id == 2 ? true : null;
+	});
     }
+
 }
